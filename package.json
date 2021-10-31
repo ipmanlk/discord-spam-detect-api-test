@@ -1,0 +1,10 @@
+{
+  "name": "discord-spam-detect-api",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^7.4.4"
+  }
+}

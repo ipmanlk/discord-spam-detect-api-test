@@ -1,11 +1,16 @@
 const fs = require("fs");
 const readline = require("readline");
+const cp = require("child_process");
 const Database = require("better-sqlite3");
 
 // reference to db table
 let dbRef;
 
 const updateDatabase = () => {
+	// update domains list
+	const updateScriptPath = `${__dirname}/scripts/download.sh`;
+	cp.execSync(`bash ${updateScriptPath}`);
+
 	// domain list from github
 	const domainsListPath = "/tmp/ALL-phishing-domains.txt";
 	const domainsListModifiedTime = fs.statSync(domainsListPath).mtimeMs;
@@ -82,5 +87,3 @@ const getConnection = () => {
 
 	return dbRef;
 };
-
-updateDatabase();

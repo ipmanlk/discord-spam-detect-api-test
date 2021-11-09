@@ -3,7 +3,7 @@ const readline = require("readline");
 const cp = require("child_process");
 const Database = require("better-sqlite3");
 
-// reference to db table
+// reference to db connection
 let dbRef;
 
 const updateDatabase = () => {
@@ -86,4 +86,8 @@ const getConnection = () => {
 	);
 
 	return dbRef;
+};
+
+module.exports = {
+	updateDatabase,
 };
